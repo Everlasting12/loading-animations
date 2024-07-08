@@ -1,46 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loading Animations</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loading Animations</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="./style.css">
 </head>
+
 <body class="w-full h-screen flex-cols justify-center items-center gap-1 p-5">
   <div id="buttons-container" class="space-x-2"></div>
   <div id="animation-container" class="flex w-full h-[90%] justify-center items-center"></div>
-  
-<script>
-const buttons =[
-  {
-    name:'Spinner', 
-   animationContainerId:'spinner',
-  html: `<div class="border-8 border-blue-500 border-t-transparent border-solid rounded-full w-16 h-16 animate-spin" id="spinner"></div>`
-  }, {name:'4 Dots',animationContainerId:'4dots',
-     html:`<div id="4dots" class="flex gap-1">
+
+  <script>
+    const buttons = [
+        {
+          name: 'Spinner',
+          html: `<div class="border-8 border-blue-500 border-t-transparent border-solid rounded-full w-16 h-16 animate-spin" id="spinner"></div>`
+        },
+        {
+          name: '4 Dots',
+          html: `<div id="4dots" class="flex gap-1">
   <div class="loading-item bg-blue-200 rounded-full scale-animation"></div>
   <div class="loading-item bg-blue-400 rounded-full scale-animation cdelay-200"></div>
   <div class="loading-item bg-blue-600 rounded-full scale-animation cdelay-400"></div>
   <div class="loading-item bg-blue-800 rounded-full scale-animation cdelay-600">
   </div>
   </div>`
-     }]
+        },
+        {
+          name: 'Bounce',
+          html: `<div class="flex space-x-2">
+        <div class="w-4 h-4 bg-blue-500 rounded-full animate-bounce" style="animation-delay: 0s;"></div>
+        <div class="w-4 h-4 bg-blue-500 rounded-full animate-bounce" style="animation-delay: 0.2s;"></div>
+        <div class="w-4 h-4 bg-blue-500 rounded-full animate-bounce" style="animation-delay: 0.4s;"></div>
+    </div>`
+        }
+      ]
 
-const buttonsContainer = document.querySelector('#buttons-container');
-const animationContainer = document.querySelector('#animation-container');  
-  
+    const buttonsContainer = document.querySelector('#buttons-container');
+    const animationContainer = document.querySelector('#animation-container');
 
-   buttons.forEach(b => {
-            const button = document.createElement('button');
-            button.innerText = b.name;
-            button.classList.add('bg-blue-500', 'text-white', 'px-4', 'py-2', 'rounded', 'hover:bg-blue-700');
-            button.onclick = () =>{
-              animationContainer.innerHTML=b.html
-            };
-            buttonsContainer.appendChild(button);
-        });
 
-</script>
+    buttons.forEach(b => {
+      const button = document.createElement('button');
+      button.innerText = b.name;
+      button.classList.add('bg-blue-500', 'text-white', 'px-4', 'py-2', 'rounded', 'hover:bg-blue-700');
+      button.onclick = () => {
+        animationContainer.innerHTML = b.html
+      };
+      buttonsContainer.appendChild(button);
+    });
+
+  </script>
 </body>
+
 </html>
