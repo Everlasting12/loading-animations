@@ -1,37 +1,71 @@
-.loading-item{
+.loading-item {
   width: 30px;
   height: 30px;
 }
 
 .scale-animation {
-  animation:0.8s infinite alternate loading;
+  animation: 0.8s infinite alternate loading;
 }
-.cdelay-200{
+
+.cdelay-200 {
   animation-delay: 0.1s;
 }
-.cdelay-400{
+
+.cdelay-400 {
   animation-delay: 0.4s;
 }
-.cdelay-600{
+
+.cdelay-600 {
   animation-delay: 0.6s;
 }
 
 @keyframes loading {
-  from{
-    scale:1
+  from {
+    scale: 1
   }
-  to{
-   scale:0.5;
+
+  to {
+    scale: 0.5;
   }
 }
 
- @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg);
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
   }
 }
 
 @keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-spin-square {
+  animation: spin-square 1.4s infinite;
+}
+
+@keyframes spin-square {
+  0%,
+  100% {
+    transform: rotate(0deg);
+    border-radius: 50%;
+    opacity: 1;
+  }
+
+  50% {
+    transform: rotate(90deg);
+    border-radius: 20%;
+    opacity: 0.6;
+  }
 }
