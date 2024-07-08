@@ -7,12 +7,40 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="./style.css">
 </head>
-<body>
-    <div class="w-full h-screen flex justify-center items-center gap-1">
+<body class="w-full h-screen flex-cols justify-center items-center gap-1 p-5">
+  <div id="buttons-container" class="space-x-2"></div>
+  <div id="animation-container" class="bg-red-300 flex w-full h-[90%] justify-center items-center"></div>
+  
+<script>
+const buttons =[
+  {
+    name:'Spinner', 
+   animationContainerId:'spinner',
+  html: `<div class="border-8 border-blue-500 border-t-transparent border-solid rounded-full w-16 h-16 animate-spin" id="spinner"></div>`
+  }, {name:'4 Dots',animationContainerId:'4dots',
+     html:`<div id="4dots" class="flex gap-1">
   <div class="loading-item bg-blue-200 rounded-full scale-animation"></div>
   <div class="loading-item bg-blue-400 rounded-full scale-animation cdelay-200"></div>
   <div class="loading-item bg-blue-600 rounded-full scale-animation cdelay-400"></div>
-  <div class="loading-item bg-blue-800 rounded-full scale-animation cdelay-600"></div>
-</div>
+  <div class="loading-item bg-blue-800 rounded-full scale-animation cdelay-600">
+  </div>
+  </div>`
+     }]
+
+const buttonsContainer = document.querySelector('#buttons-container');
+const animationContainer = document.querySelector('#animation-container');  
+  
+
+   buttons.forEach(b => {
+            const button = document.createElement('button');
+            button.innerText = b.name;
+            button.classList.add('bg-blue-500', 'text-white', 'px-4', 'py-2', 'rounded', 'hover:bg-blue-700');
+            button.onclick = () =>{
+              animationContainer.innerHTML=b.html
+            };
+            buttonsContainer.appendChild(button);
+        });
+
+</script>
 </body>
 </html>
