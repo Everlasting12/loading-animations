@@ -19,6 +19,15 @@
   animation-delay: 0.6s;
 }
 
+.animation-spin {
+  animation: spin 2s infinite linear, dimensionsToggler 1s infinite linear;
+}
+
+.animation-scale {
+  animation: scale 1s infinite linear;
+}
+
+
 @keyframes loading {
   from {
     scale: 1
@@ -82,5 +91,37 @@
 
   100% {
     width: 100%;
+  }
+}
+
+.animation-scale {
+  animation: scale 1s infinite linear;
+}
+
+@keyframes scale {
+  0% {
+    scale: 0.7;
+  }
+  50% {
+    scale: 1;
+  }
+  100% {
+    scale: 0.7;
+  }
+}
+
+
+@keyframes dimensionsToggler{
+  0% {
+    width: 90px;
+    height: 90px;
+  }
+  50% {
+     width: 150px;
+    height: 150px;
+  }
+  100% {
+    width: 90px;
+    height: 90px;
   }
 }
